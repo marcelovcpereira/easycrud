@@ -4,7 +4,6 @@ class Database{
 	
 	/*******************************************************************************
 	 * DEFAULT DATABASE CONFIGURATION - PLEASE EDIT IT TO YOUR DATABASE CONNECTION,* 
-	 * SO YOU CAN USE the FAST CONNECTION METHOD                                   *
 	 *******************************************************************************/
 	private static $server = "localhost";
 	private static $port = "3306";
