@@ -45,49 +45,12 @@ class Database{
 	
 	public static function getSchemaName(){ return Database::$database; }
 	
-	
-	public static function checkUserRAW($un,$pass){
-		Database::connectRAW($un,$pass);
-		$result = mysql_query('SELECT password FROM users WHERE username="$un"');
-		if(!$result){
-				$message  = 'Invalid query: ' . mysql_error() . "\n";
-				die($message);
-		}
-		if( !($row = mysql_fetch_assoc($result)) ){
-			die("Could not find results.");
-		}
-		
-		if( $pass == $row['password']){
-			return true;
-		}
-		return false;
-		
-	}
-	
-	
-	
-	public static function checkUser($un,$pass)
-	{
-		Database::connect();
-		
-		$usuario = new Axon('users');
-		$usuario->load('username="'. $un .'"');
-		if( $usuario -> password == $pass )
-		{			
-			return true;
-		}
-		return false;
-		
-	}
-	
-	public function getUserPrivilege($username){
-		Database::connect();
-		
-		$user = new Axon('users');
-		$user->load('username="'. $username .'"');
-		return $user->privilege;
-	}
-	
+
+        /**
+         * Receives a table name and returns it's columns as an array list
+         * @param type $tableName Name of the table
+         * @return type array listing the columns for the given table
+         */
 	public static function getTableColumns($tableName){
 		Database::connect();
 		$returnArray = Array();
@@ -99,6 +62,7 @@ class Database{
 		return $returnArray;
 	}
 	
+        
 	public static function getFieldsNames($tableName){
 		$fields = Database::getTableColumns($tableName);	
 		$returnArray = Array();
