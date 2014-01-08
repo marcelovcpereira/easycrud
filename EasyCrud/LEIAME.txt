@@ -1,0 +1,126 @@
+------------------------------------------------------------------------------------------------------
+----Guia de instalação do EASYCRUD:
+------------------------------------------------------------------------------------------------------
+
+1) Copie a pasta do EasyCrud para dentro de seu projeto. (aonde preferir. Ex: "MeuProjeto/plugins/")
+
+2) Abra o arquivo "EasyCrud/Database.php" e modifique os parâmetros para conexão com o MySQL
+
+
+
+
+------------------------------------------------------------------------------------------------------
+
+----Guia de Utilização do EASYCRUD:
+------------------------------------------------------------------------------------------------------
+
+1) Inclua o EasyCrud.php à sua página.
+Ex: <? ..... .. require_once '/plugins/EasyCrud/EasyCrud.php'; .... .... ?>
+
+2) Crie um novo CRUD indicando a tabela, o apelido da tabela, e a localização do EASYCRUD:
+Ex: <? ..... .. 
+	$meuCrud = new EasyCrud('tabela_usuarios', 'Usuários', 'plugins/EasyCrud/'); 
+    .... .... ?>	 
+
+3) Imprima o CRUD:
+Ex: <? ..... .. 
+	$meuCrud->printTable(); 
+    .... .... ?>
+
+
+------------------------------------------------------------------------------------------------------
+
+----Funcionalidades:
+------------------------------------------------------------------------------------------------------
+*Verificação automática de campos NOT NULL
+*Verificação automática de campos Chave Estrangeira
+*Verificação automática de campos Chave Primária
+*Verificação automática de campos BLOB/CLOB
+*Busca assíncrona de dados via ajax
+*Inserção assíncrona de dados via ajax
+*Ordenação assíncrona da tabela via ajax
+*Validação automática de campos numéricos durante inserção
+*Inserção fácil de dados em campos de DATA através do JQuery Datepicker
+*Inserção fácil de dados em campso Chave Estrangeira através de sistema de busca
+
+
+
+------------------------------------------------------------------------------------------------------
+
+----OBS:
+------------------------------------------------------------------------------------------------------
+Durante a inserção de um novo registro numa tabela, caso as chaves estrangeiras não estejam exibindo
+um botão para pesquisa, certifique-se de que suas tabelas estão utilizando a ENGINE INNODB.
+
+
+
+
+
+------------------------------------------------------------------------------------------------------
+
+----Funcionalidades Extras:
+------------------------------------------------------------------------------------------------------
+
+Apelidos:
+
+Assim como o apelido para o nome da Tabela, é possível criar apelidos para os campos da tabela.
+Para isso, antes do "printTable()" chame o método "setAlias" do objeto EasyCrud indicando qual a coluna a ter apelido e qual o apelido desta coluna.
+EX: $meuCrud->setAlias('user_id','Identificador');
+
+
+
+
+----
+Processamento de Campos para Visualização:
+
+O EasyCrud permite que você modifique a forma que seu dado é visualizado na tabela. 
+Para isto basta utilizar a função "setShowCallbackFunction". 
+EX: <? .... ..
+	function minhaFuncao($param){
+		return strtoupper($param);
+	}
+      .... ....	
+	$meuCrud->setShowCallbackFunction('descricao','minhaFuncao');
+      .... ....?>	
+Deste modo a tabela exibirá o conteúdo do campo descrição em letras maiúsculas, mesmo que não esteja armazenado desta forma no banco de dados.
+
+----
+
+
+----
+Processamento de Campos para Inserção:
+
+O EasyCrud permite que você modifique a forma que seu dado vai ser armazenado no banco de dados. 
+Para isto basta utilizar a função "setInsertCallbackFunction".
+EX: <? .... ..
+	function minhaFuncao($param){
+		return md5($param);
+	}
+	.... ....
+       $meuCrud->setInsertCallbackFunction('user_password',"minhaFuncao");
+    .... ....?>
+Deste modo, o campo user_password vai ser armazenado criptografado.
+----
+
+
+----
+Indicação de Campos de Password:
+
+O EasyCrud também permite que você mascare o dado que o usuário está inserindo através de um campo password.
+EX: <? .... ..
+	$meuCrud->setPasswordField('user_password');
+	.... ....?>
+Deste modo, no formulario de inserção, o campo user_password será mascarado, como um password.
+----
+
+------------------------------------------------------------------------------------------------------
+
+----Alterando o Número de Elementos exibidos na tabela
+------------------------------------------------------------------------------------------------------
+Utilizar a função "setPageSize".
+EX: <? .... ..
+	$meuCrud->setPageSize(15);
+	....?>
+
+Isso fará com que a tabela exiba no máximo 15 elementos por página
+

@@ -1,0 +1,333 @@
+body { 
+	behavior: url("csshover3.htc"); 
+} 
+
+
+
+.fk_listTable{
+	background-color: #EEEEEE;
+	border-width: 2px;
+	border-color: #777777;
+	border-style: solid;	
+	padding:4px;
+	border-collapse:collapse;
+	
+}
+.fk_listTable th.downOrder{
+	background: #777777 url("img/down_arrow.gif") no-repeat right;
+}
+
+.fk_listTable th.upOrder{
+	background: #777777 url("img/up_arrow.gif") no-repeat right;
+}
+
+.fk_listTable th{
+	background: #777777;	
+	font-weight: bold;
+	color:#000000;
+	font-size: 15px;
+	text-align: center;
+	padding-left: 10px;
+	padding-right: 10px;
+	cursor: hand;
+	cursor: pointer;
+}
+
+.fk_listTable th:hover{
+	color:#FFF;
+	
+}
+
+.fk_listTable td.tableNameRow{
+	text-align: center;
+	font-family: Tahoma,Arial Narrow,Courier New;
+	color: #435363;
+	font-weight: bold;
+	font-size: 11px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	cursor: hand;
+	cursor: pointer;
+	
+}
+.fk_listTable tr.tableRowEven td{
+	border-style: solid;
+	border-color: #777777;
+	border-width: 1px;
+}
+.fk_listTable tr.tableRowOdd td{
+	border-style: solid;
+	border-color: #777777;
+	border-width: 1px;
+}
+
+.listTable td.tableNameRow:hover{
+	color: #060;
+	background: #9F9;
+	cursor: hand;
+	cursor: pointer;
+	
+}
+
+.paginationRow{
+	color: #435363;
+	font-weight: bold;
+	font-size: 11px;
+}
+
+.paginationClass{
+	color: #435363;
+	font-weight: bold;
+	text-decoration: underline;
+	font-size: 11px;
+	cursor: hand;
+	cursor: pointer;
+}
+
+.selectedPaginationClass{
+	color: #657585;
+	font-weight: bold;	
+	font-size: 11px;
+}
+
+.fk_listTable tr.tableRowEven {
+	background: #DDDDDD;
+	border-collapse: collapse;
+	border-style: solid;
+	text-align: center;
+	border-width: 1px;
+	border-color: #777777;
+	padding: 2px;
+	cursor: hand;
+	cursor: pointer;
+}
+.fk_listTable tr.tableRowOdd{
+	background: #AAAAAA;
+	border-collapse: collapse;
+	border-style: solid;
+	text-align: center;
+	border-width: 1px;
+	border-color: #777777;
+	padding: 2px;
+	cursor: hand;
+	cursor: pointer;
+}
+
+.fk_listTable tr.tableRowEven:hover{
+	background: #DDFFDD;
+	cursor: hand;
+	cursor: pointer;
+}
+.fk_listTable tr.tableRowOdd:hover{
+	background: #DDFFDD;
+	cursor: hand;
+	cursor: pointer;
+}
+
+.listTable{
+	background-color: #E3EEFC;
+	border-width: 2px;
+	border-color: #B0C1EE;
+	border-style: solid;	
+	padding:4px;
+	border-collapse:collapse;
+	
+}
+
+.listTable td.tableNameRow{
+	text-align: center;
+	font-family: Tahoma,Arial Narrow,Courier New;
+	color: #435363;
+	font-weight: bold;
+	font-size: 11px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	cursor: hand;
+	cursor: pointer;
+	
+}
+
+.listTable td.tableNameRow:hover{
+	color: #000;
+	background: #FFF;
+	cursor: hand;
+	cursor: pointer;
+	
+}
+
+.listTable tr.tableRowEven td{
+	background: #D6E1EC;
+	border-collapse: collapse;
+	border-style: solid;
+	text-align: center;
+	border-width: 1px;
+	border-color: #BACAD9;
+	padding: 2px;
+	cursor: hand;
+	cursor: pointer;
+}
+
+.listTable tr.tableRowEven td:hover{
+	background: #DDFFDD;
+	cursor: hand;
+	cursor: pointer;
+}
+.listTable tr.tableRowOdd td:hover{
+	background: #DDFFDD;
+	cursor: hand;
+	cursor: pointer;
+}
+.insertForm{
+	background: #DDDDDD;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #BBBBBB;
+}
+
+.searchForm{
+	background: #DDDDDD;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #BBBBBB;
+}
+
+.fkSearchDiv{
+	background-color: #DDDDDD;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #BBBBBB;
+}
+
+
+.listTable tr.tableRowOdd td{
+	background: #EAF5FF;
+	border-collapse: collapse;
+	border-style: solid;
+	text-align: center;
+	border-width: 1px;
+	border-color: #BACAD9;
+	padding: 2px;
+	cursor: hand;
+	cursor: pointer;
+}
+
+.listTable tr td.deleteCell{
+	padding-left: 3px;	
+	padding-right: 3px;	
+	cursor: hand;
+	cursor: pointer;
+}
+
+.listTable tr td.deleteCell:hover{
+	padding-left: 3px;	
+	padding-right: 3px;	
+	background-color: #FFAAAA;
+	cursor: hand;
+	cursor: pointer;
+}
+
+div.ui-datepicker{
+ font-size:10px;
+}
+
+div.ui-icon ui-icon-alert{
+ font-size:10px;
+}
+
+.deleteAlert{
+	font-size: 10px;
+}
+.listTable th{
+	background: #BACAD9;	
+	font-weight: bold;
+	color:#435363;
+	font-size: 15px;
+	text-align: center;
+	padding-left: 10px;
+	padding-right: 10px;
+	cursor: hand;
+	cursor: pointer;
+}
+
+.listTable th:hover{
+	color:#000;
+}
+
+.listTable th.fk{
+	text-decoration: overline;	
+}
+.listTable th.pk{
+	text-decoration: underline;
+	
+}
+
+.listTable th.downOrder{
+	background: #BACAD9 url("img/down_arrow.gif") no-repeat right;
+}
+
+.listTable th.upOrder{
+	background: #BACAD9 url("img/up_arrow.gif") no-repeat right;
+}
+
+.listTable td{	
+	font-family: Tahoma,Arial Narrow,Courier New;
+	font-size: 13px;
+	background: #E1ECF7;
+	color: #2C3640;
+	text-align: center;
+	vertical-align: middle;
+	
+}
+
+
+
+.loadingImage{
+	vertical-align: center;
+	border-style: solid;
+	border-width: 3px;
+	border-color: #BACAD9;
+	background: url("img/loading.gif") no-repeat center;
+}
+
+table.databaseMsg{
+	background: #FFEFEF;
+	border-color: #EDBCBC;
+	border-width: 1px;
+	border-style: solid;
+	padding: 1px;
+}
+
+.badMessage{
+	background: #FFEFEF;
+	border-color: #EDBCBC;
+	border-width: 1px;
+	border-style: solid;
+	padding: 1px;
+}
+
+.goodMessage{
+	background: #EFFFEF;
+	border-color: #BCEDBC;
+	border-width: 1px;
+	border-style: solid;
+	padding: 1px;
+}
+
+
+
+
+
+div.databaseMsg a{
+	font-family: Tahoma,Arial Narrow,Courier New;
+	font-size: 13px;
+	color: #BB6565;
+	cursor: pointer, hand;
+	font-weight: bold;
+	text-decoration: none;
+}
+div.databaseMsg tr.errorTR{
+	background: #FFFCFC;
+}
+div.databaseMsg tr.errorTR b{
+	color: #BB5454;
+}
