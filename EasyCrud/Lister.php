@@ -1,4 +1,4 @@
-<?
+<?php
 require_once 'Database.php';
 require_once 'Util.php';
 
@@ -27,7 +27,7 @@ class Lister{
 		}
 		
 		private function initializeNumberOfPages(){
-			Database::fastConnect();
+			Database::connect();
 			if( $this->criteria == NULL ){}
 		}
 		
@@ -37,7 +37,7 @@ class Lister{
 		
 		
 		private function loadList(){
-			Database::fastConnect();	
+			Database::connect();	
 			
 			if( $this->criteria == NULL || $this->criteria == null || $this->criteria == "null" || $this->criteria == ""){
 				$this->criteria = "";

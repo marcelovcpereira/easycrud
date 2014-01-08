@@ -1,4 +1,4 @@
-<?
+<?php
 
 /**--------------------------------------------------------
  * -EasyCrud.php v1.0 - by Marcelo Victor Carneiro Pereira-

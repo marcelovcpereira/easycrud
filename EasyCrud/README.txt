@@ -86,7 +86,7 @@ EX: <? .... ..
       .... ....	
 	$myCrud->setShowCallbackFunction('user_name','myFunction');
       .... ....?>	
-This way, everytime EasyCrud shows the user_name field value Uppercased, even if it's not saved this way on the db.
+This way, everytime EasyCrud shows the user_name field, its value will be Uppercased, even if it's not saved this way on the db.
 (this function doesn't change the field, only the visual representation of it)
 
 ----

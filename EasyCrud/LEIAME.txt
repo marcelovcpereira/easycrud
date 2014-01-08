@@ -1,25 +1,25 @@
 ------------------------------------------------------------------------------------------------------
-----Guia de instalação do EASYCRUD:
+----Guia de instalaÃ§Ã£o do EASYCRUD:
 ------------------------------------------------------------------------------------------------------
 
 1) Copie a pasta do EasyCrud para dentro de seu projeto. (aonde preferir. Ex: "MeuProjeto/plugins/")
 
-2) Abra o arquivo "EasyCrud/Database.php" e modifique os parâmetros para conexão com o MySQL
+2) Abra o arquivo "EasyCrud/Database.php" e modifique os parï¿½metros para conexï¿½o com o MySQL
 
 
 
 
 ------------------------------------------------------------------------------------------------------
 
-----Guia de Utilização do EASYCRUD:
+----Guia de UtilizaÃ§Ã£o do EASYCRUD:
 ------------------------------------------------------------------------------------------------------
 
-1) Inclua o EasyCrud.php à sua página.
+1) Inclua o EasyCrud.php Ã  sua pÃ¡gina.
 Ex: <? ..... .. require_once '/plugins/EasyCrud/EasyCrud.php'; .... .... ?>
 
-2) Crie um novo CRUD indicando a tabela, o apelido da tabela, e a localização do EASYCRUD:
+2) Crie um novo CRUD indicando a tabela, o apelido da tabela, e a localizaï¿½ï¿½o do EASYCRUD:
 Ex: <? ..... .. 
-	$meuCrud = new EasyCrud('tabela_usuarios', 'Usuários', 'plugins/EasyCrud/'); 
+	$meuCrud = new EasyCrud('tabela_usuarios', 'Usuï¿½rios', 'plugins/EasyCrud/'); 
     .... .... ?>	 
 
 3) Imprima o CRUD:
@@ -32,16 +32,16 @@ Ex: <? ..... ..
 
 ----Funcionalidades:
 ------------------------------------------------------------------------------------------------------
-*Verificação automática de campos NOT NULL
-*Verificação automática de campos Chave Estrangeira
-*Verificação automática de campos Chave Primária
-*Verificação automática de campos BLOB/CLOB
-*Busca assíncrona de dados via ajax
-*Inserção assíncrona de dados via ajax
-*Ordenação assíncrona da tabela via ajax
-*Validação automática de campos numéricos durante inserção
-*Inserção fácil de dados em campos de DATA através do JQuery Datepicker
-*Inserção fácil de dados em campso Chave Estrangeira através de sistema de busca
+*Verificaï¿½ï¿½o automï¿½tica de campos NOT NULL
+*Verificaï¿½ï¿½o automï¿½tica de campos Chave Estrangeira
+*Verificaï¿½ï¿½o automï¿½tica de campos Chave Primï¿½ria
+*Verificaï¿½ï¿½o automï¿½tica de campos BLOB/CLOB
+*Busca assï¿½ncrona de dados via ajax
+*Inserï¿½ï¿½o assï¿½ncrona de dados via ajax
+*Ordenaï¿½ï¿½o assï¿½ncrona da tabela via ajax
+*Validaï¿½ï¿½o automï¿½tica de campos numï¿½ricos durante inserï¿½ï¿½o
+*Inserï¿½ï¿½o fï¿½cil de dados em campos de DATA atravï¿½s do JQuery Datepicker
+*Inserï¿½ï¿½o fï¿½cil de dados em campso Chave Estrangeira atravï¿½s de sistema de busca
 
 
 
@@ -49,8 +49,8 @@ Ex: <? ..... ..
 
 ----OBS:
 ------------------------------------------------------------------------------------------------------
-Durante a inserção de um novo registro numa tabela, caso as chaves estrangeiras não estejam exibindo
-um botão para pesquisa, certifique-se de que suas tabelas estão utilizando a ENGINE INNODB.
+Durante a inserï¿½ï¿½o de um novo registro numa tabela, caso as chaves estrangeiras nï¿½o estejam exibindo
+um botï¿½o para pesquisa, certifique-se de que suas tabelas estï¿½o utilizando a ENGINE INNODB.
 
 
 
@@ -63,18 +63,18 @@ um botão para pesquisa, certifique-se de que suas tabelas estão utilizando a ENG
 
 Apelidos:
 
-Assim como o apelido para o nome da Tabela, é possível criar apelidos para os campos da tabela.
-Para isso, antes do "printTable()" chame o método "setAlias" do objeto EasyCrud indicando qual a coluna a ter apelido e qual o apelido desta coluna.
+Assim como o apelido para o nome da Tabela, ï¿½ possï¿½vel criar apelidos para os campos da tabela.
+Para isso, antes do "printTable()" chame o mï¿½todo "setAlias" do objeto EasyCrud indicando qual a coluna a ter apelido e qual o apelido desta coluna.
 EX: $meuCrud->setAlias('user_id','Identificador');
 
 
 
 
 ----
-Processamento de Campos para Visualização:
+Processamento de Campos para Visualizaï¿½ï¿½o:
 
-O EasyCrud permite que você modifique a forma que seu dado é visualizado na tabela. 
-Para isto basta utilizar a função "setShowCallbackFunction". 
+O EasyCrud permite que vocï¿½ modifique a forma que seu dado ï¿½ visualizado na tabela. 
+Para isto basta utilizar a funï¿½ï¿½o "setShowCallbackFunction". 
 EX: <? .... ..
 	function minhaFuncao($param){
 		return strtoupper($param);
@@ -82,16 +82,16 @@ EX: <? .... ..
       .... ....	
 	$meuCrud->setShowCallbackFunction('descricao','minhaFuncao');
       .... ....?>	
-Deste modo a tabela exibirá o conteúdo do campo descrição em letras maiúsculas, mesmo que não esteja armazenado desta forma no banco de dados.
+Deste modo a tabela exibirï¿½ o conteï¿½do do campo descriï¿½ï¿½o em letras maiï¿½sculas, mesmo que nï¿½o esteja armazenado desta forma no banco de dados.
 
 ----
 
 
 ----
-Processamento de Campos para Inserção:
+Processamento de Campos para Inserï¿½ï¿½o:
 
-O EasyCrud permite que você modifique a forma que seu dado vai ser armazenado no banco de dados. 
-Para isto basta utilizar a função "setInsertCallbackFunction".
+O EasyCrud permite que vocï¿½ modifique a forma que seu dado vai ser armazenado no banco de dados. 
+Para isto basta utilizar a funï¿½ï¿½o "setInsertCallbackFunction".
 EX: <? .... ..
 	function minhaFuncao($param){
 		return md5($param);
@@ -104,23 +104,23 @@ Deste modo, o campo user_password vai ser armazenado criptografado.
 
 
 ----
-Indicação de Campos de Password:
+Indicaï¿½ï¿½o de Campos de Password:
 
-O EasyCrud também permite que você mascare o dado que o usuário está inserindo através de um campo password.
+O EasyCrud tambï¿½m permite que vocï¿½ mascare o dado que o usuï¿½rio estï¿½ inserindo atravï¿½s de um campo password.
 EX: <? .... ..
 	$meuCrud->setPasswordField('user_password');
 	.... ....?>
-Deste modo, no formulario de inserção, o campo user_password será mascarado, como um password.
+Deste modo, no formulario de inserï¿½ï¿½o, o campo user_password serï¿½ mascarado, como um password.
 ----
 
 ------------------------------------------------------------------------------------------------------
 
-----Alterando o Número de Elementos exibidos na tabela
+----Alterando o Nï¿½mero de Elementos exibidos na tabela
 ------------------------------------------------------------------------------------------------------
-Utilizar a função "setPageSize".
+Utilizar a funï¿½ï¿½o "setPageSize".
 EX: <? .... ..
 	$meuCrud->setPageSize(15);
 	....?>
 
-Isso fará com que a tabela exiba no máximo 15 elementos por página
+Isso farï¿½ com que a tabela exiba no mï¿½ximo 15 elementos por pï¿½gina
 

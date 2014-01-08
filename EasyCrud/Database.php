@@ -1,9 +1,10 @@
-<?
+<?php
 
 class Database{
 	
 	/*******************************************************************************
 	 * DEFAULT DATABASE CONFIGURATION - PLEASE EDIT IT TO YOUR DATABASE CONNECTION,* 
+         * You can connect passing DB parameters on the fly.                           *
 	 *******************************************************************************/
 	private static $server = "localhost";
 	private static $port = "3306";
@@ -11,25 +12,34 @@ class Database{
 	private static $user = "root";
 	private static $pass = "";
 
-	/*
-	 * You can connect at runtime with any other database instance.
-	 * Just pass the new Server configuration via Parameters
-	 */ 
-	public static function connect($server,$port,$database,$user,$pass)
+	/**
+         * You can connect at runtime with any other database instance.
+	 * Just pass the new Server configuration
+         * @param type $server servername
+         * @param type $port port number
+         * @param type $database database scheme
+         * @param type $user username
+         * @param type $pass user password
+         */ 
+	public static function connect($server="",$port="",$database="",$user="",$pass="")
 	{
+                //If the user calls just connect() it will use the default
+                //parameter values.
+                if ($server === ""){
+                    $server = Database::$server;
+                    $port = Database::$port;
+                    $database = Database::$database;
+                    $user = Database::$user;
+                    $pass = Database::$pass;
+                }
+               
+                
 		$link = mysql_connect($server . ':' .$port, $user, $pass);
 			if (!$link) {
 				die('Could not connect: ' . mysql_error());
 			}else{
 				mysql_select_db($database);
 			}		
-	}
-	
-	/*
-	 * Connecting using the default DATABASE configuration
-	 */
-	public static function fastConnect(){
-		Database::connect(Database::$server,Database::$port,Database::$database,Database::$user,Database::$pass);
 	}
 	
 	
@@ -58,7 +68,7 @@ class Database{
 	
 	public static function checkUser($un,$pass)
 	{
-		Database::fastConnect();
+		Database::connect();
 		
 		$usuario = new Axon('users');
 		$usuario->load('username="'. $un .'"');
@@ -71,7 +81,7 @@ class Database{
 	}
 	
 	public function getUserPrivilege($username){
-		Database::fastConnect();
+		Database::connect();
 		
 		$user = new Axon('users');
 		$user->load('username="'. $username .'"');
@@ -79,7 +89,7 @@ class Database{
 	}
 	
 	public static function getTableColumns($tableName){
-		Database::fastConnect();
+		Database::connect();
 		$returnArray = Array();
 		$query = 'SHOW COLUMNS FROM ' . $tableName;
 		$result = mysql_query($query);
@@ -108,7 +118,7 @@ class Database{
 	 * The query will be "insert into account (name,age) values ('Carl','23');"
 	 */
 	public static function insert($table,$names,$values){
-		Database::fastConnect();
+		Database::connect();
 		$queryString = "INSERT INTO " . $table . " (" . implode(',',$names) . ") VALUES (" . implode(',',$values) . ");";
 		
 		$result = mysql_query($queryString);
@@ -129,7 +139,7 @@ class Database{
 	 * The query will be "delete from account where id = 11 and number = 25710;"
 	 */
 	public static function delete($table,$pks){
-		Database::fastConnect();
+		Database::connect();
 		$queryString = "DELETE FROM " . $table . " WHERE ";
 		foreach( $pks as $pk ){
 			$queryString .= $pk[0] . "= '" . $pk[1] . "' AND ";
@@ -151,7 +161,7 @@ class Database{
 
 	public static function getTableForeignKeys($schemaName,$tableName){
 		$returnArray = Array();
-		Database::fastConnect();
+		Database::connect();
 		
 		
 		$query = "select COLUMN_NAME,REFERENCED_TABLE_SCHEMA,REFERENCED_TABLE_NAME,REFERENCED_COLUMN_NAME from INFORMATION_SCHEMA.KEY_COLUMN_USAGE 
@@ -176,7 +186,7 @@ class Database{
 	}
 	
 	public static function insertWithUploadFiles($table,$fieldsNames,$fieldsValues,$filesNames,$filesContent){
-		Database::fastConnect();
+		Database::connect();
 		$query = "INSERT INTO " . $table . "(" . $fieldsNames . "," . $filesNames . ") values (";
 		for($i = 0; $i< count($fieldsValues); $i++){
 			if( $i == 0 ){
