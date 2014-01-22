@@ -1,0 +1,11 @@
+{
+    "name": "marcelovcpereira/portal"
+	,"config":
+	{
+        "vendor-dir":"aplication/libraries"
+	}
+    ,require:
+    {
+    
+    }
+}

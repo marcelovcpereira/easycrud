@@ -1,0 +1,15 @@
+body {
+  padding-top: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0px auto 0px auto;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+  position:relative;
+}
+
+#addressPanel{
+    visibility: hidden;
+}
